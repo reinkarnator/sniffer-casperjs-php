@@ -6,6 +6,8 @@ Make directories *application/cache* and *application/logs* writable
 
 Configure database access in *application/config/database.php*, use **alternate** version, it's already using PDO driver and integrated with migrations, if you prefer different driver, don't forget to edit *application/config/migration.php*
 
+
+
 After setting up database setting and hosting connection, run migrations in console
 
 ```PHP
@@ -25,6 +27,8 @@ pass: 123456
 You can change it by editing it in user section of admin panel
  
 Edit *application/config/casper.php* and fill your own settings in array format. You can find all supported methods in *modules/phpcasperjs/classes/Kohana/Casper.php*
+
+Currently i've installed minion (cli) task for running it in crontab. You can find minion tas in *application/classes/Task/Cron.php*
 
 Modify default languages in *application/config/lang.php*, first for website's front, second - for admin panel. Don't forget put your language files directly into application/i18n 
 
