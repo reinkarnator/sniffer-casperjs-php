@@ -1,5 +1,7 @@
 ##Sniffer based on CasperJS, PhantomJS and PHP (Kohana)
 
+!!!NOTE: Before using this app, don't forget to install CasperJS and PhantomJS to your host!!! 
+
 Make directories *application/cache* and *application/logs* writable
 
 Configure database access in *application/config/database.php*, use **alternate** version, it's already using PDO driver and integrated with migrations, if you prefer different driver, don't forget to edit *application/config/migration.php*
