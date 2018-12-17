@@ -1,6 +1,6 @@
 ##Sniffer based on CasperJS, PhantomJS and PHP (Kohana)
 
-!!!NOTE: Before using this app, don't forget to install CasperJS and PhantomJS to your host!!! 
+**!!!NOTE: Before using this app, don't forget to install CasperJS and PhantomJS to your host!!!**
 
 Make directories *application/cache* and *application/logs* writable
 
