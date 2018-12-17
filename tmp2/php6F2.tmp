@@ -1,0 +1,44 @@
+
+        var xpath = require('casper').selectXPath;
+        var casper = require('casper').create({
+            verbose: true,
+            logLevel: 'debug',
+            colorizerType: 'Dummy',
+            pageSettings: {
+                loadImages:  false,
+                loadPlugins: false
+            },
+            onResourceRequested : function(R, req, net) {
+                var match = req.url.match(/fbexternal-a\.akamaihd\.net\/safe_image|\.pdf|\.mp4|\.png|\.gif|\.avi|\.bmp|\.jpg|\.jpeg|\.swf|\.fla|\.xsd|\.xls|\.doc|\.ppt|\.zip|\.rar|\.7zip|\.gz|\.csv/gim);
+                if (match !== null) {
+                    net.abort();
+                }
+            }
+        });
+
+        casper.userAgent('casper');
+
+        casper.start('https://google.com');
+
+        function casperize() {
+
+            var url = 'https://google.com';
+
+var fs = require('fs');
+
+casper.then(function(){
+    fs.write('105.html', this.getPageContent(), 'w');
+});
+          casper.then(function () {
+                this.echo('[CURRENT_URL]' + this.getCurrentUrl());
+                this.echo('[CURRENT_TITLE]' + this.getTitle());
+                this.echo('[CURRENT_PAGE_CONTENT]' + this.getPageContent().replace(new RegExp('\r?\n','g'), ''));
+                this.echo('[CURRENT_HTML]' + this.getHTML().replace(new RegExp('\r?\n','g'), ''));
+                this.echo('[CURRENT_HEADERS]' + JSON.stringify(this.currentResponse.headers));
+                this.echo('[CURRENT_STATUS]' + this.currentResponse.status);
+                this.echo('[CURRENT_STATUS_TEXT]' + this.currentResponse.statusText);
+               // this.echo('[CURRENT_COOKIES]' + JSON.stringify(phantom.cookies));
+          });            }
+
+            casper.run();
+            casperize();
